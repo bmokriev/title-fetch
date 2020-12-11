@@ -21,7 +21,9 @@ function search(e) {
 
       // Get all titles
       for (let i = pagesReq; i > 0; i--) {
-        apiProm.push(fetch(`https://jsonmock.hackerrank.com/api/movies/search/?Title=${keyword}&page=` + i).then(v => v.json()).then(z => z.data))
+        apiProm.push(fetch(`https://jsonmock.hackerrank.com/api/movies/search/?Title=${keyword}&page=` + i)
+		.then(v => v.json())
+		.then(z => z.data))
       }
 
       Promise.all(apiProm)
@@ -46,7 +48,6 @@ function search(e) {
             li.innerText = arr[i]
             document.getElementById('output').appendChild(li); 
           }
-
         })
     })
 
